@@ -13,7 +13,8 @@ def test_total_revenue(client):
     assert response.status_code == 200
     data = response.get_json()
     assert "total_revenue" in data
-    assert isinstance(data["total_revenue for all the regions is the following the following amount"], int)
+    assert isinstance(data["total_revenue"], int)
+    assert data["message"] == f"The total revenue for all regions is {data['total_revenue']}"
 
 def test_highest_region(client):
     response = client.get("/highest_region")

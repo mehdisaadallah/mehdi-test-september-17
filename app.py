@@ -22,7 +22,10 @@ def read_sales_data():
 def total_revenue():
     sales_data = read_sales_data()
     total = sum(int(row["sales"]) for row in sales_data)
-    return jsonify({"total_revenue": total})
+    return jsonify({
+        "message": f"The total revenue for all regions is {total}",
+        "total_revenue": total,
+    })
 
 @app.route("/highest_region")
 def highest_region():
