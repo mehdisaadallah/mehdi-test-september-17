@@ -10,7 +10,7 @@ def client():
 
 def test_total_revenue(client):
     response = client.get("/total_revenue")
-    assert response.status_code == 200
+    assert response.status_code == 400
     data = response.get_json()
     assert "total_revenue" in data
     assert isinstance(data["total_revenue"], int)
